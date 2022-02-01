@@ -28,7 +28,7 @@ int main()
 	const int APPROXIMATE_INTEGRAL_OPTION = 1;
 	const int EXPERIMENT_OPTION = 2;
 	const int QUIT_OPTION = 3;
-       	const int numCoeff = 4; // a,b,c,d
+    const int numCoeff = 4; // a,b,c,d
 	const int numRange = 2; // xStart, xEnd
 	double Coeff[numCoeff];
 	double xRange[numRange];
@@ -46,7 +46,8 @@ int main()
 		cin >> optionNum;
 		if (optionNum == APPROXIMATE_INTEGRAL_OPTION)
 		{
-			cout << "Enter (a b c d) for function y = a*x^3 + b*x^2 + c*x + d: ";
+			cout << "Enter (a b c d) for function y = a*x^3 +
+                b*x^2 + c*x + d: ";
 			cin >> Coeff[0] >> Coeff[1] >> Coeff[2] >> Coeff[3];
 
 			cout << "Now enter x start and end values: ";
@@ -58,13 +59,16 @@ int main()
 		
 
 			cout << "Rectangle result is: "
-			     << approximateAreaWithRectangles(Coeff[0],Coeff[1],Coeff[2],Coeff[3],xRange[0],xRange[1],numRect) << endl;
+			     << approximateAreaWithRectangles(Coeff[0],Coeff[1],
+                         Coeff[2],Coeff[3],xRange[0],xRange[1],numRect) 
+                 << endl;
 			
 
 		}
 		else if (optionNum == EXPERIMENT_OPTION)
 		{
-			cout << "Enter (a b c d) for function y = a*x^3 + b*x^2 + c*x + d: ";
+			cout << "Enter (a b c d) for function y = 
+                a*x^3 + b*x^2 + c*x + d: ";
 			cin >> Coeff[0] >> Coeff[1] >> Coeff[2] >> Coeff[3];
 
 			cout << "Now enter x start and end values: ";
@@ -79,8 +83,8 @@ int main()
 
 			for (rectNeeded=1; rectNeeded <= MAX_RECT; rectNeeded++)
 			{
-				estimatedAns = approximateAreaWithRectangles(Coeff[0],Coeff[1],Coeff[2],Coeff[3],
-					       	xRange[0], xRange[1], rectNeeded);
+				estimatedAns = approximateAreaWithRectangles(Coeff[0],Coeff[1],
+                        Coeff[2],Coeff[3],xRange[0], xRange[1], rectNeeded);
 				err = estimatedAns - correctAns;
 
 				if (toThePower(err,2) <= toThePower(precisionToReach,2))
@@ -92,9 +96,8 @@ int main()
 				
 				if (rectNeeded == MAX_RECT)
 				{
-					cout << "Tried 100 rectangles without reaching precision" << endl;
-
-
+					cout << "Tried 100 rectangles without reaching precision" 
+                        << endl;
 				
 				}
 
@@ -157,9 +160,11 @@ double approximateAreaWithRectangles(const double aCoeff, const double bCoeff,
 	{
 		//startInLoop = startX + (i - 1)*rectWidth;
 		midPointInLoop = startX + (i - 0.5)*rectWidth;
-		heightInLoop = aCoeff*toThePower(midPointInLoop,3) + bCoeff*toThePower(midPointInLoop,2)+
-			cCoeff*midPointInLoop + dCoeff;
-		if (evaluateCubicFormula(aCoeff, bCoeff, cCoeff, dCoeff, midPointInLoop, resultVal))
+		heightInLoop = aCoeff*toThePower(midPointInLoop,3) + 
+            bCoeff*toThePower(midPointInLoop,2) + cCoeff*midPointInLoop + 
+            dCoeff;
+		if (evaluateCubicFormula(aCoeff, bCoeff, cCoeff, 
+                    dCoeff, midPointInLoop, resultVal))
 		{
 			recSum += heightInLoop*rectWidth;
 		}

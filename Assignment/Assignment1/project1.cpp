@@ -46,8 +46,8 @@ int main()
 		cin >> optionNum;
 		if (optionNum == APPROXIMATE_INTEGRAL_OPTION)
 		{
-			cout << "Enter (a b c d) for function y = a*x^3 +
-                b*x^2 + c*x + d: ";
+			cout << "Enter (a b c d) for function y = a*x^3 +"
+            "b*x^2 + c*x + d: ";
 			cin >> Coeff[0] >> Coeff[1] >> Coeff[2] >> Coeff[3];
 
 			cout << "Now enter x start and end values: ";
@@ -67,8 +67,8 @@ int main()
 		}
 		else if (optionNum == EXPERIMENT_OPTION)
 		{
-			cout << "Enter (a b c d) for function y = 
-                a*x^3 + b*x^2 + c*x + d: ";
+			cout << "Enter (a b c d) for function y =" 
+                "a*x^3 + b*x^2 + c*x + d: ";
 			cin >> Coeff[0] >> Coeff[1] >> Coeff[2] >> Coeff[3];
 
 			cout << "Now enter x start and end values: ";

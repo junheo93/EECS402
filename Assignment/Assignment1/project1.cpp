@@ -77,24 +77,28 @@ int main()
 			cin >> precisionToReach;
 
 
-
-			err = 10; // arbitrary big number
-			rectNeeded = 1;
-			while (rectNeeded <= MAX_RECT && toThePower(err,2) <= toThePower(precisionToReach,2))
+			for (rectNeeded=1; rectNeeded <= MAX_RECT; rectNeeded++)
 			{
 				estimatedAns = approximateAreaWithRectangles(Coeff[0],Coeff[1],Coeff[2],Coeff[3],
 					       	xRange[0], xRange[1], rectNeeded);
 				err = estimatedAns - correctAns;
 
-				rectNeeded++;
+				if (toThePower(err,2) <= toThePower(precisionToReach,2))
+				{
+					cout << "Rectangles needed to reach precision: "
+						<< rectNeeded << endl;
+					break;
+				}
+				
+				if (rectNeeded == MAX_RECT)
+				{
+					cout << "Tried 100 rectangles without reaching precision" << endl;
+
+
+				
+				}
 
 			}
-			
-
-			cout << "Rectangles needed to reach precision: "
-				<< rectNeeded << endl;
-			
-
 		
 		}
 	}
